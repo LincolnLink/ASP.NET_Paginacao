@@ -32,24 +32,25 @@ namespace Paginacao.Controllers
         }
 
 
-        [HttpGet(template:"{skip:int}/{take:int}")]
+        //[HttpGet(template: "{page:int}/{pageSize:int}")]
+        [HttpGet]
         public async Task<IActionResult> GetAsync(
-            [FromServices]AppDbContext context,
-            [FromRoute] int skip = 0,
-            [FromRoute] int take = 25)
+           [FromServices]AppDbContext context,
+           int page = 1,
+           int pageSize = 10)
         {
             var total = await context.Todos.CountAsync();
-            var todos = await context
+            var data = await context
                 .Todos
                 .AsNoTracking()
-                .Skip(skip)
-                .Take(take)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
 
             return Ok(new
             {
                 total,
-                data = todos
+                data
             });
         }
     }
