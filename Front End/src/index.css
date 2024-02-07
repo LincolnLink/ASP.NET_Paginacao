@@ -4,8 +4,11 @@
   font-weight: 400;
 
   color-scheme: light dark;
+  
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /*background-color: rgb(124, 164, 230);*/
+  background: rgb(133,166,219);
+  background: linear-gradient(90deg, rgba(133,166,219,0.81) 10%, rgba(107,148,217,0.92) 50%, rgba(53,114,214,0.87) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +19,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(236, 233, 240);
   text-decoration: inherit;
 }
 a:hover {
